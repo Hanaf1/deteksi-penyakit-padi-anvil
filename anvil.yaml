@@ -1,5 +1,11 @@
 allow_embedding: false
 package_name: Material_Design_1
+db_schema:
+  table_1:
+    client: none
+    server: full
+    columns: []
+    title: Table 1
 name: Material Design 1
 startup_form: Form1
 runtime_options:
