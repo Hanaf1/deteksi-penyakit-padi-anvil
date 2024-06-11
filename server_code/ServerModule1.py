@@ -1,10 +1,12 @@
+import anvil.files
+from anvil.files import data_files
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import numpy as np
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model 
 
 # Load model once when the server module is loaded
 model = load_model('rice_disease_weights.h5')
