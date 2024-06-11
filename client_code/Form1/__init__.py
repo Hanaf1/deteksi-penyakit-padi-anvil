@@ -29,3 +29,8 @@ class Form1(Form1Template):
     else:
       # Jika tidak ada file yang diunggah, tampilkan pesan di label_2
       self.label_2.text = "No file uploaded"
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    hasil = anvil.server.call("say_hello", self.text_box_1.text)
+    self.label_hasil.text = hasil
