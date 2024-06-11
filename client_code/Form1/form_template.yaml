@@ -21,13 +21,12 @@ components:
   - name: file_loader_1
     properties: {}
     type: FileLoader
-    layout_properties: {grid_position: 'JYSYVF,RDEWYR'}
+    layout_properties: {grid_position: 'DPIKRO,HMWUEA'}
     event_bindings: {change: file_loader_1_change}
-  - name: button_1
-    properties: {text: PREDIKSI}
-    type: Button
-    layout_properties: {grid_position: 'JJESGF,LFOOLX'}
-    event_bindings: {click: button_1_click}
+  - name: image_2
+    properties: {}
+    type: Image
+    layout_properties: {grid_position: 'CLHNPD,KRDJUD'}
   - name: label_2
     properties: {}
     type: Label
@@ -45,7 +44,7 @@ components:
     - name: image_1
       properties: {}
       type: Image
-      layout_properties: {grid_position: 'MQJBVF,KSBKFY'}
+      layout_properties: {grid_position: 'XZWWKW,ZILBGH'}
     - name: label_hasil
       properties: {}
       type: Label

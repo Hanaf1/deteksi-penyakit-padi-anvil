@@ -15,25 +15,9 @@ class Form1(Form1Template):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    # Simpan file yang diunggah ke properti
-    self.uploaded_file = file
-    # Tampilkan nama file di label_2
-    self.label_2.text = f"File uploaded: {file.name}"
-
-  def button_1_click(self, **event_args):
-    predictdisease = anvil.server.call('predict_disease',self.uploaded_file)
-    """This method is called when the button is clicked"""
-    if predictdisease:
-      # Jika file telah diunggah, tampilkan nama file di label_2
-      self.label_2.text = f"penyakit tanaman padi : {predictdisease.capitalize()}"
-    else:
-      # Jika tidak ada file yang diunggah, tampilkan pesan di label_2
-      self.label_2.text = "No file uploaded"
-
-  def button_2_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    hasil = anvil.server.call("say_hello", self.text_box_1.text)
-    self.label_hasil.text = hasil
+    result = anvil.server.call("prediksipenyakitpadi",file)
+    self.label_2.text = result
+    self.image_2.source=file
 
   def file_loader_2_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
