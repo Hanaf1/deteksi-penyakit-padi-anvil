@@ -34,3 +34,9 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
     hasil = anvil.server.call("say_hello", self.text_box_1.text)
     self.label_hasil.text = hasil
+
+  def file_loader_2_change(self, file, **event_args):
+    """This method is called when a new file is loaded into this FileLoader"""
+    result = anvil.server.call("classify_image",file)
+    self.label_hasil.text = result
+    self.image_1.source=file
