@@ -21,10 +21,11 @@ class Form1(Form1Template):
     self.label_2.text = f"File uploaded: {file.name}"
 
   def button_1_click(self, **event_args):
+    predictdisease = anvil.server.call('predict_disease',self.uploaded_file)
     """This method is called when the button is clicked"""
-    if self.uploaded_file:
+    if predictdisease:
       # Jika file telah diunggah, tampilkan nama file di label_2
-      self.label_2.text = f"File loaded: {self.uploaded_file.name}"
+      self.label_2.text = f"penyakit tanaman padi : {predictdisease.capitalize()}"
     else:
       # Jika tidak ada file yang diunggah, tampilkan pesan di label_2
       self.label_2.text = "No file uploaded"

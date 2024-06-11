@@ -1,5 +1,5 @@
 allow_embedding: false
-package_name: Material_Design_1
+package_name: Deteksi_Penyakit_Padi
 db_schema:
   table_1:
     client: none
@@ -20,13 +20,14 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: string
     title: Files
-name: Material Design 1
+name: Deteksi Penyakit Padi
 startup_form: Form1
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
+  server_spec_disabled: {base: python310-standard, requirements: ''}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
@@ -34,3 +35,5 @@ services:
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {file_table: files}
+uplink_visible: true
+metadata: {title: Deteksi Penyakit Padi}
