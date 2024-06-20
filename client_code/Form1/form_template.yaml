@@ -16,6 +16,10 @@ components:
     properties:
       text: |
         Deteksi Penyakit Padi
+      font_size: 20
+      italic: true
+      underline: false
+      bold: false
     type: Label
     layout_properties: {grid_position: 'HPYNZB,GDPPPX'}
   - name: file_loader_1
@@ -28,24 +32,6 @@ components:
     type: Image
     layout_properties: {grid_position: 'CLHNPD,KRDJUD'}
   - name: label_2
-    properties: {}
+    properties: {align: center, font: '', font_size: 16, bold: false}
     type: Label
     layout_properties: {grid_position: 'OBHLNN,LDTMOY'}
-  - name: card_2
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'GUUDGJ,KMYMBV'}
-    components:
-    - name: file_loader_2
-      properties: {}
-      type: FileLoader
-      layout_properties: {grid_position: 'WVHVKA,WRJKUV'}
-      event_bindings: {change: file_loader_2_change}
-    - name: image_1
-      properties: {}
-      type: Image
-      layout_properties: {grid_position: 'XZWWKW,ZILBGH'}
-    - name: label_hasil
-      properties: {}
-      type: Label
-      layout_properties: {grid_position: 'APKCWM,JKLCIO'}
