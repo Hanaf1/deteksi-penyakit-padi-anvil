@@ -15,7 +15,7 @@ components:
   - name: label_1
     properties:
       text: |
-        Deteksi Penyakit Padi
+        Mengetahui Penyakit Padi
       font_size: 20
       italic: true
       underline: false
