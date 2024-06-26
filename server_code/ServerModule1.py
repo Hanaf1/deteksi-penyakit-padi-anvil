@@ -1,19 +1,37 @@
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-import anvil.server
-import numpy as np
+import tensorflow as tf
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import load_model 
+import numpy as np
+import cv2
+from PIL import Image
+import gdown
+import anvil.media
 
-# Load model once when the server module is loaded
-model = load_model('rice_disease_weights.h5')
+
+model_path = "rice_disease_weights.h5"
+model = tf.keras.models.load_model(model_path)
+
+# Class labels for the disease prediction
 class_labels = {0: 'Bacterial leaf blight', 1: 'Brown spot', 2: 'Leaf smut'}
 
-@anvil.server.callable
-def predict_disease(img):
-    img = image.img_to_array(img)
-    img = np.expand_dims(img, axis=0) / 255.0  # Normalize
-    predictions = model.predict(img)
+def prediksi(img):
+    img = cv2.resize(img, (224, 224))  # Resize the image
+    img_array = np.expand_dims(img, axis=0) / 255.0  # Normalize
+
+    # Make predictions
+    predictions = model.predict(img_array)
     predicted_class = np.argmax(predictions)
-    return class_labels.get(predicted_class, 'Unknown class')
+
+    # Check the predicted class
+    if predicted_class in class_labels:
+        return class_labels[predicted_class]
+    else:
+        return 'Unknown class'
+
+
+@anvil.server.callable
+def prediksipenyakitpadi(file):
+
+    with anvil.media.TempFile(file) as f:
+        img = np.array(Image.open(f))
+    hasil = "hasil prediksi penyakit : " + prediksi(img)
+    return hasil
